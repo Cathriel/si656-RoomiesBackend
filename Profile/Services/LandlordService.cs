@@ -122,6 +122,7 @@ namespace Roomies.API.Services
             existingLandlord.LastName = landlord.LastName;
             existingLandlord.Province = landlord.Province;
             existingLandlord.IdCard = landlord.IdCard;
+            existingLandlord.Verified = landlord.Verified;
 
             try
             {

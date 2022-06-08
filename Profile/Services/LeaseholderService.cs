@@ -134,6 +134,7 @@ namespace Roomies.API.Services
             existingLeaseholder.Province = leaseholder.Province;
             existingLeaseholder.IdCard = leaseholder.IdCard;
             existingLeaseholder.Description = leaseholder.Description;
+            existingLeaseholder.Verified = leaseholder.Verified;
 
             try
             {

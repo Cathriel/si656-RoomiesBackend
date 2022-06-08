@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roomies.API", "Roomies.API.csproj", "{AD75C004-22B6-4089-BC17-4D1212894903}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roomies.API.Test", "..\Roomies.API.Test\Roomies.API.Test.csproj", "{CFF544D4-F5AF-4FEF-A766-CBFD723C7D5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowProject", "..\SpecFlowProject\SpecFlowProject.csproj", "{E20B3184-14B5-44FF-B83C-983148EA5742}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
