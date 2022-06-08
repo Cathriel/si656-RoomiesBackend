@@ -1,8 +1,8 @@
-name: .NET
+name: Testing
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
 
