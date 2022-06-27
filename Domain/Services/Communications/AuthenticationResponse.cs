@@ -22,8 +22,8 @@ namespace Roomies.API.Domain.Services.Communications
             Token = token;
         }
 
-        public AuthenticationResponse()
-        {
+        public AuthenticationResponse(string error)
+        {         
         }
     }
 }

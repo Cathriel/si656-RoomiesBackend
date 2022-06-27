@@ -17,15 +17,13 @@ namespace Roomies.API.Services
         private readonly IPostRepository _postRepository;
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IProfileRepository _profileRepository;
-
-        public LandlordService(ILandlordRepository landlordRepository, IUnitOfWork unitOfWork, IPlanRepository planRepository, IPostRepository postRepository, IProfileRepository profileRepository, IUserRepository userRepository)
+        
+        public LandlordService(ILandlordRepository landlordRepository, IUnitOfWork unitOfWork, IPlanRepository planRepository, IPostRepository postRepository, IUserRepository userRepository)
         {
             _landlordRepository = landlordRepository;
             _unitOfWork = unitOfWork;
             _planRepository = planRepository;
             _postRepository = postRepository;
-            _profileRepository = profileRepository;
             _userRepository = userRepository;
         }
 

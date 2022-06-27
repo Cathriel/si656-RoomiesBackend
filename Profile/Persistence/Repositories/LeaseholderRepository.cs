@@ -22,7 +22,6 @@ namespace Roomies.API.Persistence.Repositories
 
         public async Task<Leaseholder> FindById(int id)
         {
-            //return await _context.Leaseholders.FindAsync(id);
             return await _context.Leaseholders.Include(l => l.Plan).FirstAsync(l => l.Id == id);
 
         }

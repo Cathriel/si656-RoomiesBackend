@@ -50,8 +50,7 @@ namespace Roomies.API
 
             // DbContext Configuration
             services.AddDbContext<AppDbContext>(options =>
-            {
-                //options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+            {             
                 options.UseMySQL(Configuration.GetConnectionString("SmarterAspMySqlConnection"));
             });
 

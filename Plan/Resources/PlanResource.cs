@@ -11,7 +11,5 @@ namespace Roomies.API.Resources
         public float Price { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        //public DateTime StartSubscription { set; get; }
-        //public DateTime EndSubsciption { set; get; }
     }
 }

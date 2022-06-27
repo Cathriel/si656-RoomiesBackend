@@ -15,9 +15,9 @@ namespace Roomies.API.Persistence.Repositories
         {
         }
 
-        public async Task AddAsync(ProfilePaymentMethod userPaymentMethod)
+        public async Task AddAsync(ProfilePaymentMethod profilePaymentMethod)
         {
-            await _context.UserPaymentMethods.AddAsync(userPaymentMethod);
+            await _context.UserPaymentMethods.AddAsync(profilePaymentMethod);
         }
 
         public async Task AssignProfilePaymentMethodAsync(int profileId, int paymentMethodId)
@@ -63,14 +63,14 @@ namespace Roomies.API.Persistence.Repositories
                .ToListAsync();
         }
 
-        public void Remove(ProfilePaymentMethod userPaymentMethod)
+        public void Remove(ProfilePaymentMethod profilePaymentMethod)
         {
-            _context.UserPaymentMethods.Remove(userPaymentMethod);
+            _context.UserPaymentMethods.Remove(profilePaymentMethod);
         }
 
-        public async Task UnassignProfilePaymentMethodAsync(int userId, int paymentMethodId)
+        public async Task UnassignProfilePaymentMethodAsync(int profileId, int paymentMethodId)
         {
-            ProfilePaymentMethod userPaymentMethod = await FindByProfileIdAndPaymentMethodId(userId, paymentMethodId);
+            ProfilePaymentMethod userPaymentMethod = await FindByProfileIdAndPaymentMethodId(profileId, paymentMethodId);
             if (userPaymentMethod != null)
                 Remove(userPaymentMethod);
         }

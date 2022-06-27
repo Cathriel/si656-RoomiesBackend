@@ -23,16 +23,14 @@ namespace Roomies.API.Controllers
     {
         private readonly IPostService _postService;
         private readonly IRuleService _ruleService;
-        private IReviewService _reviewService;
 
         private readonly IMapper _mapper;
 
-        public PostsController(IPostService postService, IMapper mapper, IReviewService reviewService, IRuleService ruleService)
+        public PostsController(IPostService postService, IMapper mapper, IRuleService ruleService)
         {
             _ruleService = ruleService;
             _postService = postService;
             _mapper = mapper;
-            _reviewService = reviewService;
         }
 
         [SwaggerOperation(
@@ -44,7 +42,7 @@ namespace Roomies.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<PostResource>> GetAllAsync()
         {
-            var posts = await _postService.ListAsync();//ListByCategoryIdAsync(categoryId);
+            var posts = await _postService.ListAsync();
             var resources = _mapper.Map<IEnumerable<Post>, IEnumerable<PostResource>>(posts);
 
             return resources;

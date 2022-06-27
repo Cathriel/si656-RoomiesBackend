@@ -16,13 +16,11 @@ namespace Roomies.API.Controllers
     public class FavouritePostsController:ControllerBase
     {
         private readonly IPostService _postService;
-        private readonly IFavouritePostService _favouritePostService;
         private readonly IMapper _mapper;
 
-        public FavouritePostsController(IPostService postService, IFavouritePostService favouritePostService, IMapper mapper)
+        public FavouritePostsController(IPostService postService, IMapper mapper)
         {
             _postService = postService;
-            _favouritePostService = favouritePostService;
             _mapper = mapper;
         }
 

@@ -11,14 +11,12 @@ namespace Roomies.API.Controllers
 {
     [Route("/api/landlords/{landlordId}/posts")]
     public class LandlordPostsController
-    {
-        private ILandlordService _landlordService;
-        private IPostService _postService;
+    {      
+        private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
-        public LandlordPostsController(ILandlordService landlordService, IPostService postService, IMapper mapper)
+        public LandlordPostsController(IPostService postService, IMapper mapper)
         {
-            _landlordService = landlordService;
             _postService = postService;
             _mapper = mapper;
         }
