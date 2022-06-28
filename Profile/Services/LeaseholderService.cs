@@ -19,15 +19,13 @@ namespace Roomies.API.Services
         private readonly IFavouritePostRepository _favouritePostRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
-        private readonly IProfileRepository _profileRepository;
 
-        public LeaseholderService(ILeaseholderRepository leaseholderRepository, IFavouritePostRepository favouritePostRepository, IUnitOfWork unitOfWork, IPlanRepository planRepository = null, IProfileRepository profileRepository = null, IUserRepository userRepository = null)
+        public LeaseholderService(ILeaseholderRepository leaseholderRepository, IFavouritePostRepository favouritePostRepository, IUnitOfWork unitOfWork, IPlanRepository planRepository = null, IUserRepository userRepository = null)
         {
             _leaseholderRepository = leaseholderRepository;
             _favouritePostRepository = favouritePostRepository;
             _unitOfWork = unitOfWork;
             _planRepository = planRepository;
-            _profileRepository = profileRepository;
             _userRepository = userRepository;
         }
 
@@ -81,7 +79,7 @@ namespace Roomies.API.Services
             return leaseholders;
         }
 
-        public async Task<LeaseholderResponse> SaveAsync(Leaseholder leaseholder,int planId, int userId)
+        public async Task<LeaseholderResponse> SaveAsync(Leaseholder landlord,int planId, int userId)
         {
             var existingPlan = await _planRepository.FindById(planId);
 
@@ -98,16 +96,16 @@ namespace Roomies.API.Services
             {
 
 
-                leaseholder.Plan = existingPlan;
-                leaseholder.PlanId = planId;
-                leaseholder.User = existingUser;
-                leaseholder.UserId = userId;
+                landlord.Plan = existingPlan;
+                landlord.PlanId = planId;
+                landlord.User = existingUser;
+                landlord.UserId = userId;
 
 
-                await _leaseholderRepository.AddAsync(leaseholder);
+                await _leaseholderRepository.AddAsync(landlord);
                 await _unitOfWork.CompleteAsync();
 
-                return new LeaseholderResponse(leaseholder);
+                return new LeaseholderResponse(landlord);
                 
             }
 
@@ -117,23 +115,24 @@ namespace Roomies.API.Services
             }
         }
 
-        public async Task<LeaseholderResponse> UpdateAsync(int id, Leaseholder leaseholder)
+        public async Task<LeaseholderResponse> UpdateAsync(int id, Leaseholder landlord)
         {
             var existingLeaseholder= await _leaseholderRepository.FindById(id);
 
             if (existingLeaseholder == null)
                 return new LeaseholderResponse("Arrendatario inexistente");
 
-            existingLeaseholder.Name = leaseholder.Name;
-            existingLeaseholder.Address = leaseholder.Address;
-            existingLeaseholder.Birthday = leaseholder.Birthday;
-            existingLeaseholder.Department = leaseholder.Department;
-            existingLeaseholder.CellPhone = leaseholder.CellPhone;
-            existingLeaseholder.District = leaseholder.District;
-            existingLeaseholder.LastName = leaseholder.LastName;
-            existingLeaseholder.Province = leaseholder.Province;
-            existingLeaseholder.IdCard = leaseholder.IdCard;
-            existingLeaseholder.Description = leaseholder.Description;
+            existingLeaseholder.Name = landlord.Name;
+            existingLeaseholder.Address = landlord.Address;
+            existingLeaseholder.Birthday = landlord.Birthday;
+            existingLeaseholder.Department = landlord.Department;
+            existingLeaseholder.CellPhone = landlord.CellPhone;
+            existingLeaseholder.District = landlord.District;
+            existingLeaseholder.LastName = landlord.LastName;
+            existingLeaseholder.Province = landlord.Province;
+            existingLeaseholder.IdCard = landlord.IdCard;
+            existingLeaseholder.Description = landlord.Description;
+            existingLeaseholder.Verified = landlord.Verified;
 
             try
             {
