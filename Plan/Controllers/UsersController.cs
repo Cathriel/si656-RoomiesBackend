@@ -19,10 +19,10 @@ namespace Roomies.API.Controllers
     [ApiController]
     public class UsersController:ControllerBase
     {
-        private IUserService _userService;
-        private IProfileService _profileService;
-        private ILeaseholderService _leaseholderService;
-        private ILandlordService _landlordService;
+        private readonly IUserService _userService;
+        private readonly IProfileService _profileService;
+        private readonly ILeaseholderService _leaseholderService;
+        private readonly ILandlordService _landlordService;
         private readonly IMapper _mapper;
 
         public UsersController(IUserService userService, IMapper mapper, IProfileService profileService, ILeaseholderService leaseholderService, ILandlordService landlordService)

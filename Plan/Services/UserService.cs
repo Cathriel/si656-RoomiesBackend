@@ -50,14 +50,12 @@ namespace Roomies.API.Services
         {
             IEnumerable<User> users = await _userRepository.ListAsync();
 
-            var user = users.ToList().SingleOrDefault(x => x.Username == request.Username);
+            var user = users.AsEnumerable().SingleOrDefault(x => x.Username == request.Username);
 
             if (user == null || !BCryptNet.BCrypt.Verify(request.Password, user.PasswordHash))
-            {
-                throw new ApplicationException("Username or password is incorrect");
+            {            
+                return new AuthenticationResponse("Username or password is incorrect");
             }
-
-            if (user == null) return null;
 
             var response = _mapper.Map<User, AuthenticationResponse>(user);
             response.Token = GenerateJwtToken(user);

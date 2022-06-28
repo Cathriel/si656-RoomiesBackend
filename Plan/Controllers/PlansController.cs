@@ -18,15 +18,13 @@ namespace Roomies.API.Controllers
     [ApiController]
     public class PlansController:ControllerBase
     {
-        private readonly IPlanService _planService;
-        private readonly IProfileService _profileService;
+        private readonly IPlanService _planService;       
         private readonly IMapper _mapper;
 
-        public PlansController(IPlanService planService, IMapper mapper, IProfileService profileService)
+        public PlansController(IPlanService planService, IMapper mapper)
         {
             _planService = planService;
             _mapper = mapper;
-            _profileService = profileService;
         }
 
         [SwaggerOperation(

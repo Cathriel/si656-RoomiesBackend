@@ -28,7 +28,7 @@ namespace Roomies.API.Persistence.Repositories
         public async Task<User> FindByUsername(string username)
         {
             IEnumerable<User> users = await ListAsync();
-            var user = users.ToList().SingleOrDefault(x => x.Username == username);
+            var user = users.AsEnumerable().SingleOrDefault(x => x.Username == username);
             return user;
 
         }

@@ -12,7 +12,7 @@ namespace Roomies.API.Controllers
     [Route("/api/plans/{planId}/profiles")]
     public class PlanProfilesController
     {
-        private IProfileService _profileService;
+        private readonly IProfileService _profileService;
         private readonly IMapper _mapper;
 
         public PlanProfilesController(IProfileService profileService, IMapper mapper)
