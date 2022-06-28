@@ -22,10 +22,7 @@ namespace Roomies.API.Persistence.Repositories
 
         public async Task<Profile> FindById(int id)
         {
-            //return await _context.Profiles.FindAsync(id).Include(p => p.Plan);
-            //return await _context.Profiles.Include(p => p.Plan).Include(p => p.User).FirstAsync(p => p.Id == id);
             return await _context.Profiles.Include(p => p.Plan).FirstAsync(p => p.Id == id);
-
         }
 
         public async Task<Profile> FindByUserId(int userId)
@@ -36,8 +33,7 @@ namespace Roomies.API.Persistence.Repositories
 
         public async Task<IEnumerable<Profile>> ListAsync()
         {
-            return await _context.Profiles.Include(p=>p.Plan).Include(p=>p.User).ToListAsync();
-            //return await _context.Profiles.Include(p => p.Plan).Include(p=>p.User).ToListAsync();
+            return await _context.Profiles.Include(p=>p.Plan).Include(p=>p.User).ToListAsync();           
         }
 
         public async Task<IEnumerable<Profile>> ListByPlanId(int planId)

@@ -35,7 +35,7 @@ namespace Roomies.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<LandlordResource>> GetAllAsync()
         {
-            var landlords = await _landlordService.ListAsync();//ListByCategoryIdAsync(categoryId);
+            var landlords = await _landlordService.ListAsync();
             var resources = _mapper.Map<IEnumerable<Landlord>, IEnumerable<LandlordResource>>(landlords);
 
             return resources;
