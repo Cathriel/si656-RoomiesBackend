@@ -12,7 +12,7 @@ namespace Roomies.API.Controllers
     [Route("/api/posts/{postId}/reviews")]
     public class PostReviewsController
     {
-        private IReviewService _reviewService;
+        private readonly IReviewService _reviewService;
         private readonly IMapper _mapper;
 
         public PostReviewsController(IReviewService reviewService, IMapper mapper)
