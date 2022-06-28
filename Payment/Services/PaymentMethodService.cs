@@ -58,9 +58,9 @@ namespace Roomies.API.Services
             return await _paymentMethodRepository.ListAsync();
         }
 
-        public async Task<IEnumerable<PaymentMethod>> ListByProfileIdAsync(int userId)
+        public async Task<IEnumerable<PaymentMethod>> ListByProfileIdAsync(int profileId)
         {
-            var userPaymentMethods = await _userPaymentMethodRepository.ListByProfileIdAsync(userId);
+            var userPaymentMethods = await _userPaymentMethodRepository.ListByProfileIdAsync(profileId);
             var paymentMethod= userPaymentMethods.Select(pt => pt.PaymentMethod).ToList();
             return paymentMethod;
         }
